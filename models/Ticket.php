@@ -35,7 +35,7 @@ class Ticket extends Conectar
         INNER JOIN tm_categoria on tm_ticket.cat_id=tm_categoria.cat_id
         INNER JOIN tm_usuario ON tm_ticket.usu_id=tm_usuario.usu_id
         WHERE tm_ticket.est=1
-        AND tm_usuario.usu_id=?";
+        AND tm_usuario.usu_id=?"; //aqui coloco el parametro del ususario
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1,$usu_id);
         $sql->execute();

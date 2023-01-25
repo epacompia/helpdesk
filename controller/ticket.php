@@ -10,6 +10,7 @@
         
         break;
 
+    
     case "listar_x_usu":
         $datos = $ticket->listar_ticket_x_usu($_POST["usu_id"]);
         $data = array();
@@ -18,10 +19,9 @@
             $sub_array[]=$row["tick_id"];
             $sub_array[]=$row["cat_nom"];
             $sub_array[]=$row["tick_titulo"];
-            $sub_array[]='<button type="button" onClick="ver(' . $row["tick_id"].');" id="'.$row["tick_id"] .'" class="btn btn-outline-primary btn-icon"><div><i class="fa fa-edit"></i></div></button>' //CREO ESTE BOTON 
-
+            $sub_array[] = '<button type="button" onClick="ver(' . $row["tick_id"] . ');" id="' . $row["tick_id"] . '" class="btn btn-inline btn-primary btn-sm ladda-buttom"><div><i class="fa fa-eye"></i></div></button>'; //CREO ESTE BOTON 
+            $data[] = $sub_array;
         }
-
         //Para usar el DATATABLE
         $results= array(
             "sEcho"=>1,
@@ -29,7 +29,7 @@
             "iTotalDisplayRecords"=>count($data),
             "aaData" => $data);
         echo json_encode($results);
-        )
+        break;
         
     }
 

@@ -47,15 +47,17 @@ if (isset($_SESSION["usu_id"])) {
 						Desde esta ventana podra generar nuevos tickets de helpdesk.
 					</p>
 					<h5 class="m-t-lg with-border">Ingresar información</h5>
-					<form action="" method="POST" id="ticket_form">
-						
-						<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
-						<div class="row">
+
+
+
+					<div class="row">
+						<form action="" method="POST" id="ticket_form">
+							<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
 							<div class="col-lg-6">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="exampleInput">Categoria</label>
-									<select  id="cat_id" name="cat_id" class="form-control"> <!--AQUI LE DOY UN NOMBRE AL ID para realcionar con el archivo nuevoTicket.js desde este lo controlaremos-->
-										
+									<select id="cat_id" name="cat_id" class="form-control"> <!--AQUI LE DOY UN NOMBRE AL ID para realcionar con el archivo nuevoTicket.js desde este lo controlaremos-->
+
 									</select>
 								</fieldset>
 							</div>
@@ -74,10 +76,12 @@ if (isset($_SESSION["usu_id"])) {
 								</fieldset>
 							</div>
 							<div class="col-lg-12">
-								<button type="submit" name="action"  value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button> <!--Le coloco un name y un value-->
+								<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button> <!--Le coloco un name y un value-->
 							</div>
-						</div><!--.row-->
-					</form>
+						</form>
+					</div><!--.row-->
+
+
 				</div>
 			</div><!--.container-fluid-->
 		</div><!--.page-content-->
