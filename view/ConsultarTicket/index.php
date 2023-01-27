@@ -49,6 +49,7 @@ if (isset($_SESSION["usu_id"])) {
 								<th style="width: 10%;">Nro° Ticket</th>
 								<th style="width: 15%;">Categoria</th>
 								<th class="d-none d-sm-table-cell" style="width: 25%;">Titulo</th>
+								<th class="d-none d-sm-table-cell" style="width: 25%;">Fecha de Creación</th>  <!--AQUI AGREGO ESTE CAMPO PARA QUE SE MUESTRE EN MI LISTA DE TICEKTS-->
 								<th class="text-center" style="width: 15%;"></th>
 								
 							</tr>
