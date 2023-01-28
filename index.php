@@ -47,11 +47,15 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         <div class="page-center-in">
             <div class="container-fluid">
 
+                <!--OBSERVACION CON ESTE CAMPO PARA LOS ROLES DE USUARIO Y DE SOPORTE-->
+                <input type="hidden" id="rol_id" name="rol_id" value="1"> <!--ESTE INPUT ES PARA DIFERENCIAR ENTRE ROL DE SOPORTE Y ROL DE USUARIO, ASIGNAREMOS 1 PARA PERFIL DE USUARIO Y 2 PARA PERFIL DE SOPORTE, POR DEFECTO CUANDO CARGUE LA PAGINA VA ESTA COMO USUARIO  -->
+
+                
                 <form class="sign-box" action="" method="POST" id="login_form">
                     <div class="sign-avatar">
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
-                    <header class="sign-title">Ingreso</header>
+                    <header class="sign-title" id="lbltitulo">Acceso Usuario</header> <!--aqui le agrego un id  para manupular el acceso como usuario-->
 
 
                     <!-- VALIDACIONES PARA EL CASO LOS CAMPOS ESTEN VACIOS O EN CASO NO SEAN INGRESADOS CORRECTAMENTE -->
@@ -103,6 +107,9 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
                         <div class="float-right reset">
                             <a href="reset-password.html">Cambiar contraseña</a>
                         </div>
+                        <div class="float-left reset">
+                            <a href="#" id="btnsoporte">Acceso Soporte</a>  <!--AQUI LE DOY UN id="btnsoporte PARA MANIPULAR EL TIPO DE LOGIN COMO SOPORTE"-->
+                        </div>
                     </div>
 
                     <input type="hidden" name="enviar" class="form-control" value="si"> <!-- AQUI ES DONDE COLOCO MI CAMPO OCULTO ENVIAR CON EL VALOR SI -->
@@ -141,6 +148,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         });
     </script>
     <script src="public/js/app.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>
