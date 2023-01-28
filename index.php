@@ -47,11 +47,14 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
         <div class="page-center-in">
             <div class="container-fluid">
 
-                <!--OBSERVACION CON ESTE CAMPO PARA LOS ROLES DE USUARIO Y DE SOPORTE-->
-                <input type="hidden" id="rol_id" name="rol_id" value="1"> <!--ESTE INPUT ES PARA DIFERENCIAR ENTRE ROL DE SOPORTE Y ROL DE USUARIO, ASIGNAREMOS 1 PARA PERFIL DE USUARIO Y 2 PARA PERFIL DE SOPORTE, POR DEFECTO CUANDO CARGUE LA PAGINA VA ESTA COMO USUARIO  -->
-
+                
                 
                 <form class="sign-box" action="" method="POST" id="login_form">
+                    
+                    <!--OBSERVACION CON ESTE CAMPO PARA LOS ROLES DE USUARIO Y DE SOPORTE, es decir al dar clic en enviar no solo staremos enviando correo y password sino el rol_id por eso entraremos al modelo Usuario a su funcion login para agregar este parametro rol id-->
+                    <input type="hidden" id="rol_id" name="rol_id" value="1"> <!--ESTE INPUT ES PARA DIFERENCIAR ENTRE ROL DE SOPORTE Y ROL DE USUARIO, ASIGNAREMOS 1 PARA PERFIL DE USUARIO Y 2 PARA PERFIL DE SOPORTE, POR DEFECTO CUANDO CARGUE LA PAGINA VA ESTA COMO USUARIO  -->
+
+
                     <div class="sign-avatar">
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
