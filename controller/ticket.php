@@ -32,7 +32,30 @@
             "aaData" => $data);
         echo json_encode($results);
         break;
-        
+    
+        case "listar":
+            $datos = $ticket->listar_ticket();
+            $data = array();
+            foreach($datos as $row){
+                $sub_array=array();
+                $sub_array[]=$row["tick_id"];
+                $sub_array[]=$row["cat_nom"];
+                $sub_array[]=$row["tick_titulo"];
+                //Aqui agrego el campo de fecha de creacion dandole el formato de dia mes año y hora minuto segundos 
+                $sub_array[] = date("d/m/Y H:i:s", strtotime($row["fech_crea"])); //agrego este campo para mostrar en mi datatble, de estos parametros depende los campos que se mostraran en la datatabla es dcir si agrego uno mas se agregara automaticamente al datatable
+                $sub_array[] = '<button type="button" onClick="ver(' . $row["tick_id"] . ');" id="' . $row["tick_id"] . '" class="btn btn-inline btn-primary btn-sm ladda-buttom"><div><i class="fa fa-eye"></i></div></button>'; //CREO ESTE BOTON 
+                $data[] = $sub_array;
+            }
+            //Para usar el DATATABLE
+            $results= array(
+                "sEcho"=>1,
+                "iTotalRecords"=>count($data),
+                "iTotalDisplayRecords"=>count($data),
+                "aaData" => $data);
+            echo json_encode($results);
+        break;
+            
+    
     }
 
 ?>

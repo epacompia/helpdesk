@@ -184,7 +184,7 @@
                 </div><!--.site-header-shown-->
 
                 <div class="mobile-menu-right-overlay"></div>
-                <input type="hidden" id="usu_idx" value="<?php echo $_SESSION["usu_id"] ?>">  <!--aqui va el id del usuario logueado que usare para todo mi vista-->
+                <input type="hidden" id="user_idx" value="<?php echo $_SESSION["usu_id"] ?>">  <!--aqui va el id del usuario logueado que usare para todo mi vista-->
                 <input type="hidden" id="rol_idx" value="<?php echo $_SESSION["rol_id"] ?>">  <!--aqui va el rol_id del usuario logueado que usare para todo mi vista, este rol en esta ubicaicon me permitira acceder segun el rol que tenga en este momento y me dejara ver vistas segun mi rol-->
                 <div class="dropdown dropdown-typical">
                     <a href="#" class="dropdown-toogle no-arr">

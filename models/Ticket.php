@@ -43,6 +43,30 @@ class Ticket extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+
+    //AQUI LE CREO OTRA FUNCION PERO PARA LISTAR TODOS LOS TICKET PARA LA VISTA DE SOPORTE POR ESO NO LE PASO NINGUN usu_id como parametro en la funcion 
+    public function listar_ticket(){
+        $conectar = parent::conexion();
+        $sql = "SELECT 
+        tm_ticket.tick_id,
+        tm_ticket.usu_id,
+        tm_ticket.cat_id,
+        tm_ticket.tick_titulo,
+        tm_ticket.tick_descrip,
+        tm_ticket.fech_crea,  /*AQUI AGREGO ESTE CAMPO TAMBIEN PARA MOSTRAR ESTE DATO EN MI QUERY*/
+        tm_usuario.usu_nom,
+        tm_usuario.usu_ape,
+        tm_categoria.cat_nom
+        FROM 
+        tm_ticket
+        INNER JOIN tm_categoria on tm_ticket.cat_id=tm_categoria.cat_id
+        INNER JOIN tm_usuario ON tm_ticket.usu_id=tm_usuario.usu_id
+        WHERE tm_ticket.est=1";
+        $sql = $conectar->prepare($sql);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
 }
 
 ?>
