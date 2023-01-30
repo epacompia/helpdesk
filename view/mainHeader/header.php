@@ -94,7 +94,7 @@
                                             <span class="mess-item-txt">Morgan was bothering about something!</span>
                                         </a>
                                         <a href="#" class="mess-item">
-                                            <span class="avatar-preview avatar-preview-32"><img src="img/avatar-2-64.png" alt=""></span>
+                                            <span class="avatar-preview avatar-preview-32"><img src="../../public/img/avatar-2-64.png" alt=""></span>
                                             <span class="mess-item-name">Christian Burton</span>
                                             <span class="mess-item-txt">Morgan was bothering about something! Morgan was bothering about something.</span>
                                         </a>
