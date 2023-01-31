@@ -68,6 +68,26 @@ class Ticket extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+    //PARA MI TABLE ticketdetalle , aqui me va listar el detalle de mi ticket
+    public function listar_ticketdetalle_x_ticket($tick_id){
+        $conectar = parent::conexion();
+        $sql = "SELECT 
+        td_ticketdetalle.tickd_id,
+        td_ticketdetalle.tickd_descrip,
+        td_ticketdetalle.fech_crea,
+        tm_usuario.usu_nom,
+        tm_usuario.usu_ape
+        FROM 
+        td_ticketdetalle 
+        INNER JOIN tm_usuario on td_ticketdetalle.usu_id=tm_usuario.usu_id
+        where tick_id=?";
+        
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1,$tick_id);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
 
 
 

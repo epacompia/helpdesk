@@ -123,7 +123,8 @@ $(document).ready(function(){
 
     //CREO UNA FUNCION PARA DAR CLIC EN VER Y QUE SE VEA TODO EL DETALLE DEL TICKET DESDE SU CREACION, esta funcion es llamada en el controlador en case "listar_x_usu":
     function ver(tick_id){
-        console.log(tick_id);
+        //console.log(tick_id);
+        window.open('http://localhost/helpdesk/view/DetalleTicket/?ID='+ tick_id +''); //AQUI LE DIGO QUE AL DAR CLIC AL BOTON DEL OJITO ME REDIRECCIONE A ESTA PAGINA DETALLETICKET y le paso el tiket_id
         
     }
 
