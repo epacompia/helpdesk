@@ -13,6 +13,21 @@ $(document).ready(function() {
         //console.log(data);   // esto es para ver que me lo imprima 5 veces
         $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
      });
+
+     //codigo para que funcione el sumernote en el archivo detalleticket.php donde se muestra el detalle del ticket
+     $('#tickd_descrip').summernote({
+        height: 150,
+        callbacks: {
+            onImageUpload: function(image) {
+                console.log("Image detect...");
+                myimagetreat(image[0]);
+            },
+            onPaste: function (e) {
+                console.log("Text detect...");
+            }
+        }
+     });
+
 });
 
 
