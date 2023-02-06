@@ -14,9 +14,19 @@ $(document).ready(function() {
         $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
      });
 
+     $.post("../../controller/ticket.php?op=mostrar",{tick_id : tick_id}, function (data) {
+        data= JSON.parse(data);
+        $('#lblestado').html(data.tick_estado);
+        $('#lblnomusuario').html(data.usu_nom + ' '+ data.usu_ape);
+        $('#lblfechcrea').html(data.fech_crea);        
+     });
+
+
+
      //codigo para que funcione el sumernote en el archivo detalleticket.php donde se muestra el detalle del ticket
      $('#tickd_descrip').summernote({
         height: 150,
+        lang: "es-ES",  //ESTO ES PARA AGREGARLE A ESPAÑOL EL SUMMERNOTE ( AGREGO LA REFERENCIA EN EL js.php dentro de la carpeta mainJs)
         callbacks: {
             onImageUpload: function(image) {
                 console.log("Image detect...");

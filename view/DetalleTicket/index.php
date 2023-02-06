@@ -34,9 +34,11 @@ if (isset($_SESSION["usu_id"])) {
 						<div class="tbl-row">
 							<div class="tbl-cell">
 								<h3>Detalle ticket - 1</h3>
-                                <span class="label label-pill label-danger">Cerrado</span>
-                                <span class="label label-pill label-primary">Nombre del usuario</span>
-                                <span class="label label-pill label-default">Fecha de creacion</span>
+								<!-- AQUI LE DOY UN ID A TODO LOS SPAN PARA QUE PUEDAN SER MANIPULABLE LA INFORMACION QUE MUESTRAN -->
+                                <div  id="lblestado">Cerrado</div>
+                                <span class="label label-pill label-primary" id="lblnomusuario" ></span>
+                                <span class="label label-pill label-default" id="lblfechcrea"></span>
+								
 								<ol class="breadcrumb breadcrumb-simple">
 									<li><a href="#">Inicio</a></li>
 									<li class="active">Detalle ticket</li>

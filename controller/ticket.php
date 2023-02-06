@@ -78,7 +78,7 @@ switch ($_GET["op"]) {
         //PARA LISTAR EL DETALLE DE TICKET 
     case "listardetalle":
         $datos = $ticket->listar_ticketdetalle_x_ticket($_POST["tick_id"]);
-?>
+        ?>
         <?php
         foreach ($datos as $row) {
         ?>
@@ -123,8 +123,35 @@ switch ($_GET["op"]) {
         <?php
         }
         ?>
-<?php
+        <?php
         break;
+
+    case "mostrar":
+        $datos = $ticket->listar_ticket_x_id($_POST["tick_id"]);
+        if(is_array($datos) == true and count($datos)>0){
+            foreach($datos as $row){
+                $output["tick_id"] = $row["tick_id"];
+                $output["usu_id"] = $row["usu_id"];
+                $output["cat_id"] = $row["cat_id"];
+                $output["tick_titulo"] = $row["tick_titulo"];
+                $output["tick_descrip"] = $row["tick_descrip"];
+                //$output["tick_id"] = $row["tick_id"];
+                if($row["tick_estado"] == "Abierto"){
+                    $output["tick_estado"] = '<span class="label label-pill label-success">Abierto</span>';
+                }else{
+                    $output["tick_estado"] = '<span class="label label-pill label-danger">Cerrado</span>';
+                }
+                 
+
+                $output["fech_crea"] = date("d/m/Y H:i:s", strtotime($row["fech_crea"]));
+                $output["usu_nom"] = $row["usu_nom"];
+                $output["usu_ape"] = $row["usu_ape"];
+                $output["cat_nom"] = $row["cat_nom"];
+
+            }
+            echo json_encode($output);
+        }
+
 }
 
 ?>

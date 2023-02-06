@@ -9,7 +9,8 @@ function init(){
  
  $(document).ready(function() {
  	$('#tick_descrip').summernote({
-		height:350
+		height:350,
+		lang: "es-ES",  //ESTO ES PARA AGREGARLE A ESPAÑOL EL SUMMERNOTE ( AGREGO LA REFERENCIA EN EL js.php dentro de la carpeta mainJs)
 	});
 
 	//LLAMANDO AL SERVICIO combo que cree en mi categoria.php de la carpeta controller

@@ -13,3 +13,6 @@
 	 
 <!--AGREGO ESTE SCRIPT PARA QUE FUNCIONE MI VENTANA MODAL DETALLETICKET,PHP-->
 <script src="../../public/js/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+<!--ESTO ES PARA DARLE UN FORMATO EN ESPAÑOL AL SUMMERNOTE-->
+<script src="../../public/js/summernote-ES.js"></script>
