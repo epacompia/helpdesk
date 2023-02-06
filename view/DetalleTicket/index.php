@@ -33,7 +33,7 @@ if (isset($_SESSION["usu_id"])) {
 					<div class="tbl">
 						<div class="tbl-row">
 							<div class="tbl-cell">
-								<h3>Detalle ticket - 1</h3>
+								<h3 id="lblnomidticket">Detalle ticket - 1</h3>
 								<!-- AQUI LE DOY UN ID A TODO LOS SPAN PARA QUE PUEDAN SER MANIPULABLE LA INFORMACION QUE MUESTRAN -->
                                 <div  id="lblestado">Cerrado</div>
                                 <span class="label label-pill label-primary" id="lblnomusuario" ></span>
@@ -65,10 +65,16 @@ if (isset($_SESSION["usu_id"])) {
 											<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" readonly>
 										</fieldset>
 									</div>
+
+									<!-- AQUI LE DOY A LA DESCRIPCION UN ESTILO DE SUMMERNOTE YA QUE EN LA BASE DE DATOS EL SUMMER NOTE ME GUARDA COMO HTML POR ESO UELVO A USAR SIUMERNOTE PAR QUE ME MUESTRE AQUI LO GUARDADO  -->
 									<div class="col-lg-12">
 										<fieldset class="form-group">
-											<label class="form-label semibold" for="tick_descrip">Descripción</label>
-											<input type="text" class="form-control" id="tick_descrip" name="tick_descrip" >
+											<label class="form-label semibold" for="tickd_descripusu">Descripción</label>
+											<div class="summernote-theme-1">
+												<textarea class="summernote" id="tickd_descripusu" name="tickd_descripusu"></textarea>
+											</div>
+											
+											<!-- <input type="text" class="form-control" id="tick_descrip" name="tick_descrip" > -->
 										</fieldset>
 									</div>
 									

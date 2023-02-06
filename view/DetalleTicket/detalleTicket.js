@@ -18,14 +18,20 @@ $(document).ready(function() {
         data= JSON.parse(data);
         $('#lblestado').html(data.tick_estado);
         $('#lblnomusuario').html(data.usu_nom + ' '+ data.usu_ape);
-        $('#lblfechcrea').html(data.fech_crea);        
+        $('#lblfechcrea').html(data.fech_crea);       
+        $('#lblnomidticket').html("Detalle Ticket -" + data.tick_id);       
+        $('#cat_id').val(data.cat_nom);
+        $('#tick_titulo').val(data.tick_titulo);
+        $('#tickd_descripusu').summernote('code', data.tick_descrip);
+
+        
      });
 
-
+    
 
      //codigo para que funcione el sumernote en el archivo detalleticket.php donde se muestra el detalle del ticket
      $('#tickd_descrip').summernote({
-        height: 150,
+        height: 250,
         lang: "es-ES",  //ESTO ES PARA AGREGARLE A ESPAÑOL EL SUMMERNOTE ( AGREGO LA REFERENCIA EN EL js.php dentro de la carpeta mainJs)
         callbacks: {
             onImageUpload: function(image) {
@@ -37,6 +43,16 @@ $(document).ready(function() {
             }
         }
      });
+
+
+      //PARA MOSTRAR LA DESCRIPCION  DE MI FORMULARIO DE ARRIBA DONDE MUESTRO LOS DATOS PRINCIPALES EN EL DETALLETICKET.PHP
+      $('#tickd_descripusu').summernote({
+        height: 250,
+        lang: "es-ES" //ESTO ES PARA AGREGARLE A ESPAÑOL EL SUMMERNOTE ( AGREGO LA REFERENCIA EN EL js.php dentro de la carpeta mainJs)
+        
+     });
+
+
 
 });
 
