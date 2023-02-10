@@ -151,7 +151,13 @@ switch ($_GET["op"]) {
             }
             echo json_encode($output);
         }
+        break;
 
+     //CREANDO EL INSERTAR DETALLE PARA EL TICKET DETALLE Y QUE SE PUEDA INSERTAR COMENTARIOS DE EL SOPORTE Y EL CLIENTE
+     case "insertdetalle":
+        $ticket->insert_ticketdetalle($_POST["tick_id"], $_POST["usu_id"], $_POST["tickd_descrip"]); //LLAMANDO A LOS DATOS DE Ticket.php para pasarlos como parametros
+
+        break;   
 }
 
 ?>

@@ -52,6 +52,9 @@ $(document).ready(function() {
         
      });
 
+     //ESTE CODIGO ES PARA DESHABILITAR EL EDITOR EN EL SUMMERNOTE EN LA VISTA detalleticket.js en la parte superior donde me trae los datos del ticket
+     // en el index.php de detalleticket
+     $('#tickd_descripusu').summernote('disable');
 
 
 });
@@ -76,6 +79,23 @@ var getUrlParameter = function getUrlParameter(sParam){
         }
     }
 };
+
+
+//CODIGO PARA LOS BOTONES ENVIAR Y CERRAR DE MI VISTA detalleticket (index) donde esatn los comentario sde los de soporte y del usuario
+$(document).on("click","#btnenviar", function(){
+    //parametros que se les pasara
+    var tick_id= getUrlParameter('ID');
+    var usu_id= $('#user_idx').val(); //este es el valor que esta en el main.php osea el mainheader  
+    var tickd_descrip=$('#tickd_descrip').val(); //este es el valor que esta en el main.php osea el mainheader 
+    $.post("../../controller/ticket.php?op=insertdetalle", {tick_id:tick_id, usu_id:usu_id, tickd_descrip:tickd_descrip}, function (data){
+     console.log("test");
+     });
+});
+
+$(document).on("click","#btncerrarticket", function(){
+
+});
+
 
 
 init();
