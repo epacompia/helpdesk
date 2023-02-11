@@ -8,11 +8,11 @@ function init(){
 $(document).ready(function() {
     var tick_id = getUrlParameter('ID');
     //console.log(id);
-    //AQUI LE PASO ESTO PARA QUE SELECCIONE MI listardetalle de mi ticket.php y le paso como parametro el id del ticket  
-     $.post("../../controller/ticket.php?op=listardetalle", {tick_id : tick_id}, function (data){
-        //console.log(data);   // esto es para ver que me lo imprima 5 veces
-        $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
-     });
+    //LLAMANDO A MI FUNCION litsardetalle para listar los comentarios del detalle ticekt
+    listardetalle(tick_id);
+
+
+
 
      $.post("../../controller/ticket.php?op=mostrar",{tick_id : tick_id}, function (data) {
         data= JSON.parse(data);
@@ -88,8 +88,14 @@ $(document).on("click","#btnenviar", function(){
     var usu_id= $('#user_idx').val(); //este es el valor que esta en el main.php osea el mainheader  
     var tickd_descrip=$('#tickd_descrip').val(); //este es el valor que esta en el main.php osea el mainheader 
     $.post("../../controller/ticket.php?op=insertdetalle", {tick_id:tick_id, usu_id:usu_id, tickd_descrip:tickd_descrip}, function (data){
-     console.log("test");
-     });
+    listardetalle(tick_id); //LO PONGO AQUI PARA QUE ME LISTE INMEDIATAMENTE EL DETALLE QUE ACABO DE COMENTAR EN LA VISTA DE LISTAR DETALLE OSEA LOS COMENTARIOS QUE INGRESEN SOPORTE Y USUARIO
+        //console.log("test");
+    //LIMPIANDO LA CJA DE TEXTO DESCRIPCION DEL DETALLE TICKET DONDE HICE EL COMENTARIO PARA PREGUNTAR COMO VA EL CASO 
+    $('#tickd_descrip').summernote('reset');
+     //AGREGO ESTO PARA MOSTRAR EL MENSAJE QUE SE GUARDO CORRECTAMENTE EL COMENTARIO DEL USUARIO EN EL TICKET
+    swal("Correcto!","Registrado correctamente","success");
+
+    });
 });
 
 $(document).on("click","#btncerrarticket", function(){
@@ -97,5 +103,14 @@ $(document).on("click","#btncerrarticket", function(){
 });
 
 
+
+
+function listardetalle(tick_id){
+//AQUI LE PASO ESTO PARA QUE SELECCIONE MI listardetalle de mi ticket.php y le paso como parametro el id del ticket  
+     $.post("../../controller/ticket.php?op=listardetalle", {tick_id : tick_id}, function (data){
+        //console.log(data);   // esto es para ver que me lo imprima 5 veces
+        $('#lbldetalle').html(data);  //LLAMO  a mi section de mi index.php que conteinia a mi article
+     });
+}
 
 init();
