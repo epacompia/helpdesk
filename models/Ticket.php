@@ -132,6 +132,30 @@ class Ticket extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+
+    //FUNCION PARA ACTUALZAR EL ESTADO DEL TICKET A CERRADO CUANDO SEA ELIMINADO
+    public function update_ticket($tick_id){
+        $conectar = parent::conexion();
+        $sql = "UPDATE tm_ticket
+        set tick_estado='Cerrado' where tick_id=?"; //aqui coloco el parametro del ususario
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1,$tick_id);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
+    public function insert_ticketdetalle_cerrar($tick_id,$usu_id){
+        $conectar = parent::conexion();
+        parent::set_names();
+        $sql="INSERT INTO td_ticketdetalle(tickd_id,tick_id,usu_id,tickd_descrip,fech_crea,est) VALUES (NULL,?,?,'Ticket Cerrado',now(),'1');";
+         //$sql = "INSERT INTO td_ticketdetalle(tick_id,usu_id,cat_id,tick_titulo,tick_descrip,tick_estado,fech_crea,est) VALUES (NULL,?,?,?,?,'Abierto',now(),'1');"; //now() es para obtener la fecha y hora actual del sistema , solo lo que hice fue agregar a la tabla tm_ticket un campo llamado fech_crea y luego  me vine aqui al modelo para agregar ese campo now() para agregar la fecha y hora donde se creo el ticket nada mas no he hecho cambios en otro lado
+        $sql = $conectar->prepare($sql);
+        $sql->bindValue(1, $tick_id);
+        $sql->bindValue(2, $usu_id);
+        $sql->execute();
+        return $resultado = $sql->fetchAll();
+    }
+
 }
 
 ?>

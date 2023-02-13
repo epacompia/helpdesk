@@ -88,8 +88,8 @@ if (isset($_SESSION["usu_id"])) {
                 </section><!--.activity-line-->
 
 
-                <!-- AGREGO LA FUNCIONALIDAD DE NUEVO TICKET -->
-                <div class="box-typical box-typical-padding">
+                <!-- AGREGO LA FUNCIONALIDAD DE NUEVO TICKET para INGRESAR EL COMENTARIO DEL USUARIO O DE SOPORTE-->
+                <div class="box-typical box-typical-padding" id="pnldetalle"> <!--TENER EN CUENTA QUE LE PONGO EL ID para que luego en el detalleticket.js pueda ser usado para que no se muestre este campo despues de haber crrado el ticket-->
                     <p>Ingrese su duda o consulta</p>
 
 					<div class="row">

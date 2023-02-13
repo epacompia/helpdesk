@@ -141,7 +141,9 @@ switch ($_GET["op"]) {
                 }else{
                     $output["tick_estado"] = '<span class="label label-pill label-danger">Cerrado</span>';
                 }
-                 
+                
+                //HAGO ESTE ARTIFICIO YA QUE AL MOMENTO DE CERRAR Y PREGUTNAR POR TICEKT_ESTADO este tiene codigo html dentro entonces mejor aqui lo meto en un varaible y esa variable la llamo en en detalleTicket,js
+                $output["tick_estado_texto"] = $row["tick_estado"];
 
                 $output["fech_crea"] = date("d/m/Y H:i:s", strtotime($row["fech_crea"]));
                 $output["usu_nom"] = $row["usu_nom"];
@@ -157,7 +159,15 @@ switch ($_GET["op"]) {
      case "insertdetalle":
         $ticket->insert_ticketdetalle($_POST["tick_id"], $_POST["usu_id"], $_POST["tickd_descrip"]); //LLAMANDO A LOS DATOS DE Ticket.php para pasarlos como parametros
 
-        break;   
+        break;  
+        
+        
+        case "update":
+            $ticket->update_ticket($_POST["tick_id"]); //LLAMANDO A LOS DATOS DE Ticket.php para pasarlos como parametros
+            $ticket->insert_ticketdetalle_cerrar($_POST["tick_id"],$_POST["usu_id"]); //LLAMANDO A ESTA FUNCION PARA CERRAR EL TICKET Y MOSTRARLE MENSAJE DE TICKET CERRADO
+        break;
+
+
 }
 
 ?>
