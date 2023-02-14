@@ -56,7 +56,7 @@ if (isset($_POST["enviar"]) and $_POST["enviar"] == "si") {
 
 
                     <div class="sign-avatar">
-                        <img src="public/img/avatar-sign.png" alt="">
+                        <img src="public/img/1.jpg" alt="" id="imgtipo">
                     </div>
                     <header class="sign-title" id="lbltitulo">Acceso Usuario</header> <!--aqui le agrego un id  para manupular el acceso como usuario-->
 
