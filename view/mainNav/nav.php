@@ -75,6 +75,12 @@
 	            </a>
 	        </li> -->
             <li class="blue-dirty">
+	            <a href="..\MntUsuario\">
+	                <span class="glyphicon glyphicon-th"></span>
+	                <span class="lbl">Mantenimiento Usuario</span>
+	            </a>
+	        </li>
+			<li class="blue-dirty">
 	            <a href="..\ConsultarTicket\">
 	                <span class="glyphicon glyphicon-th"></span>
 	                <span class="lbl">Consultar ticket</span>
