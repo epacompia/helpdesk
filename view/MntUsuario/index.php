@@ -43,6 +43,7 @@ if (isset($_SESSION["usu_id"])) {
 				</header>
 
 				<div class="box-typical box-typical-padding">
+				<button type="button" id="btnnuevo" class="btn btn-rounded btn-inline">Nuevo usuario</button>
 					<table id="usuario_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
 						<thead>
 							<tr>
@@ -65,6 +66,13 @@ if (isset($_SESSION["usu_id"])) {
 			</div><!--.container-fluid-->
 		</div><!--.page-content-->
 		<!-- FIN DEL CONTENIDO -->
+
+
+
+		<!--Requiriendo el modal para crear usuario-->
+		<?php
+		require_once("modalmantenimiento.php");
+		?>
 
 
 		<?php

@@ -63,6 +63,10 @@ $(document).ready(function(){
 });
 
     function editar(usu_id){
+        
+        //llamo a mi modal pero le paso para el titulo editar registro y luego lo muestro con modal
+        $('#mdltitulo').html('Editar registro');
+        $('#modalmantenimiento').modal('show');
         console.log(usu_id);
     }
 
@@ -109,6 +113,12 @@ $(document).ready(function(){
         });
     }
 
+    //CODIGO PARA HACER FUNCIONAR EL MODAL DE MANTENIENTO USUARIO CUANDO LE DOY CLIC EN NUEVO USUARIO
+    $(document).on("click","#btnnuevo", function(){
+        // console.log("dfsdfsdf");
+        $('#mdltitulo').html('Nuevo Registro');
+        $('#modalmantenimiento').modal('show');
+    });
 
 
 init();
