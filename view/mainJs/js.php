@@ -16,3 +16,4 @@
 
 <!--ESTO ES PARA DARLE UN FORMATO EN ESPAÑOL AL SUMMERNOTE-->
 <script src="../../public/js/summernote-ES.js"></script>
+
