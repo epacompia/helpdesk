@@ -43,7 +43,8 @@ if (isset($_SESSION["usu_id"])) {
 				</header>
 
 				<div class="box-typical box-typical-padding">
-				<button type="button" id="btnnuevo" class="btn btn-rounded btn-inline">Nuevo usuario</button>
+				
+				<button class="btn btn-inline btn-primary" data-toggle="modal" id="btnnuevo" data-target=".bd-example-modal-lg">Nuevo usuario</button>
 					<table id="usuario_data" class="table table-bordered table-striped table-vcenter js-dataTable-full">
 						<thead>
 							<tr>

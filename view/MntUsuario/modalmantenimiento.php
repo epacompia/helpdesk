@@ -24,14 +24,22 @@
                     <label class="form-label" for="usu_pass">Contraseña</label>
                     <input type="text" class="form-control" id="usu_pass" placeholder="Ingrese la contraseña" required>
                 </div>
+
                 <div class="form-group">
                     <label class="form-label" for="rol_id">Rol</label>
-                    <select id="exampleSelect" class="form-control">
-                        <option>Usuario</option>
-                        <option>Soporte</option>
+                    <select class="select2" id="rol_id">
+                        <option value="1">Usuario</option>
+                        <option value="2">Soporte</option>
                     </select>
                 </div>
-                
+                <!-- <div class="form-group">
+                    <label class="form-label" for="rol_id">Rol</label>
+                    <select id="exampleSelect"  id="rol_id" class="form-control">
+                        <option value="1" >Usuario</option>
+                        <option value="2" >Soporte</option>
+                    </select>
+                </div> -->
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Cerrar</button>
