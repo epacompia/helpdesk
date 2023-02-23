@@ -1,7 +1,9 @@
 var tabla;
 
 function init(){
-
+    $("#usuario_form").on("submit", function() {
+        guardaryeditar();  //agrego esto para que mi formulario que teine como id usuario_form al dar enviar guarde o edite
+    });
 }
 
 //ESTEE CODIGO ES PARA EL DATATABLE
@@ -62,6 +64,7 @@ $(document).ready(function(){
         }).DataTable();  
 });
 
+
     function editar(usu_id){
         
         //llamo a mi modal pero le paso para el titulo editar registro y luego lo muestro con modal
@@ -70,6 +73,7 @@ $(document).ready(function(){
         $.post("../../controller/usuario.php?op=mostrar",{usu_id : usu_id}, function (data) {
             data= JSON.parse(data);
             //console.log(data);  
+            $('usu_id').val(data.usu_id);
              $('#usu_nom').val(data.usu_nom);
              $('#usu_ape').val(data.usu_ape);
              $('#usu_correo').val(data.usu_correo);
@@ -129,6 +133,7 @@ $(document).ready(function(){
     $(document).on("click","#btnnuevo", function(){
         // console.log("dfsdfsdf");
         $('#mdltitulo').html('Nuevo Registro');
+        $('#usuario_form')[0].reset();
         $('#modalmantenimiento').modal('show');
     });
 

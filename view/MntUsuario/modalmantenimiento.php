@@ -7,44 +7,50 @@
                 </button>
                 <h4 class="modal-title" id="mdltitulo">Modal title</h4>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="form-label" for="usu_nom">Nombre</label>
-                    <input type="text" class="form-control" id="usu_nom" placeholder="Ingrese el nombre" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="usu_ape">Apellido</label>
-                    <input type="text" class="form-control" id="usu_ape" placeholder="Ingrese los apellidos" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="usu_correo">Correo</label>
-                    <input type="email" class="form-control" id="usu_correo" placeholder="example@example.com" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="usu_pass">Contraseña</label>
-                    <input type="text" class="form-control" id="usu_pass" placeholder="Ingrese la contraseña" required>
-                </div>
 
-                <div class="form-group">
-                    <label class="form-label" for="rol_id">Rol</label>
-                    <select class="select2" id="rol_id">
-                        <option value="1">Usuario</option>
-                        <option value="2">Soporte</option>
-                    </select>
-                </div>
-                <!-- <div class="form-group">
-                    <label class="form-label" for="rol_id">Rol</label>
-                    <select id="exampleSelect"  id="rol_id" class="form-control">
-                        <option value="1" >Usuario</option>
-                        <option value="2" >Soporte</option>
-                    </select>
-                </div> -->
+            <form action="" id="usuario_form" method="post"></form>
+                <div class="modal-body">
 
-            </div>
-            <div class="modal-footer">
+                    <input type="hidden" id="usu_id" name="usu_id">
+
+                    <div class="form-group">
+                        <label class="form-label" for="usu_nom">Nombre</label>
+                        <input type="text" class="form-control" id="usu_nom" placeholder="Ingrese el nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="usu_ape">Apellido</label>
+                        <input type="text" class="form-control" id="usu_ape" placeholder="Ingrese los apellidos" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="usu_correo">Correo</label>
+                        <input type="email" class="form-control" id="usu_correo" placeholder="example@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="usu_pass">Contraseña</label>
+                        <input type="text" class="form-control" id="usu_pass" placeholder="Ingrese la contraseña" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="rol_id">Rol</label>
+                        <select class="select2" id="rol_id">
+                            <option value="1">Usuario</option>
+                            <option value="2">Soporte</option>
+                        </select>
+                    </div>
+                    <!-- <div class="form-group">
+        <label class="form-label" for="rol_id">Rol</label>
+        <select id="exampleSelect"  id="rol_id" class="form-control">
+            <option value="1" >Usuario</option>
+            <option value="2" >Soporte</option>
+        </select>
+    </div> -->
+
+                </div>
+                <div class="modal-footer">
                 <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-rounded btn-primary">Guardar</button>
+                <button type="submit"  name="action"  id="#" value="add" class="btn btn-rounded btn-primary">Guardar</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
