@@ -1,10 +1,35 @@
 var tabla;
 
 function init(){
-    $("#usuario_form").on("submit", function() {
-        guardaryeditar();  //agrego esto para que mi formulario que teine como id usuario_form al dar enviar guarde o edite
+    $("#usuario_form").on("submit", function(e) {
+        guardaryeditar(e);  //agrego esto para que mi formulario que teine como id usuario_form al dar enviar guarde o edite
+        console.log(test);
     });
 }
+
+
+function guardaryeditar(e){
+   /* e.preventDefault();
+    var formData= new FormData($("#usuario_form")[0]);
+    $.ajax({
+        url: "../../controller/usuario.php?op=guardaryeditar",
+        type:"POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(datos){
+            console.log(datos);
+            // $('#usuario_form')[0].reset();
+            // $('#modalmantenimiento').modal('hide');
+            // $('#usuario_data').DataTable().ajax.reload();
+            //Swal.fire('Guardado', 'Registro Guardado correctamente','success');
+        }
+    });
+    */
+   console.log("test 1");
+}
+
+
 
 //ESTEE CODIGO ES PARA EL DATATABLE
 $(document).ready(function(){
@@ -62,7 +87,9 @@ $(document).ready(function(){
             }
             
         }).DataTable();  
-});
+
+        console.log("test");
+    });
 
 
     function editar(usu_id){

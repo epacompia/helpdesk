@@ -15,35 +15,28 @@
 
                     <div class="form-group">
                         <label class="form-label" for="usu_nom">Nombre</label>
-                        <input type="text" class="form-control" id="usu_nom" placeholder="Ingrese el nombre" required>
+                        <input type="text" class="form-control" id="usu_nom" name="usu_nom" placeholder="Ingrese el nombre" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="usu_ape">Apellido</label>
-                        <input type="text" class="form-control" id="usu_ape" placeholder="Ingrese los apellidos" required>
+                        <input type="text" class="form-control" id="usu_ape" name="usu_ape" placeholder="Ingrese los apellidos" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="usu_correo">Correo</label>
-                        <input type="email" class="form-control" id="usu_correo" placeholder="example@example.com" required>
+                        <input type="email" class="form-control" id="usu_correo"  name="usu_correo" placeholder="example@example.com" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="usu_pass">Contraseña</label>
-                        <input type="text" class="form-control" id="usu_pass" placeholder="Ingrese la contraseña" required>
+                        <input type="text" class="form-control" id="usu_pass" name="usu_pass" placeholder="Ingrese la contraseña" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="rol_id">Rol</label>
-                        <select class="select2" id="rol_id">
+                        <select class="select2" id="rol_id" name="rol_id">
                             <option value="1">Usuario</option>
                             <option value="2">Soporte</option>
                         </select>
                     </div>
-                    <!-- <div class="form-group">
-        <label class="form-label" for="rol_id">Rol</label>
-        <select id="exampleSelect"  id="rol_id" class="form-control">
-            <option value="1" >Usuario</option>
-            <option value="2" >Soporte</option>
-        </select>
-    </div> -->
 
                 </div>
                 <div class="modal-footer">
