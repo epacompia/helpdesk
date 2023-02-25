@@ -22,8 +22,8 @@ function guardaryeditar(e){
             $('#usuario_data').DataTable().ajax.reload();
 
             swal({
-                title: "HelpDesk!",
-                text: "Completado.",
+                title: "Informatica - Dircocor!",
+                text: "Usuario Registrado.",
                 type: "success",
                 confirmButtonClass: "btn-success"
             });
@@ -53,6 +53,7 @@ $(document).ready(function(){
                 console.log(e.responseText);	
             }
         },
+        "ordering": false,
         "bDestroy": true,
         "responsive": true,
         "bInfo":true,

@@ -85,6 +85,7 @@ $(document).ready(function(){
                     console.log(e.responseText);
                 }
             },
+            
             "bDestroy":true,
             "responsive": true,
             "bInfo":true,
