@@ -7,7 +7,7 @@ class Conectar{
     //Funcion para la conexion
     protected function Conexion(){
         try {
-            $conectar = $this->dbh = new PDO("mysql:local=localhost::3306;dbname=HELPDESK", "root","");
+            $conectar = $this->dbh = new PDO("mysql:local=localhost::3306;dbname=HELPDESK", "root","Eduardo123@");
             return $conectar;
         } catch (Exception $e) {
             print "Error en la BD" . $e->getMessage() . "<br/>";

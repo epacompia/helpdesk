@@ -8,7 +8,7 @@
                 <h4 class="modal-title" id="mdltitulo">Modal title</h4>
             </div>
 
-            <form action="" id="usuario_form" method="post"></form>
+            <form  method="post"  id="usuario_form">
                 <div class="modal-body">
 
                     <input type="hidden" id="usu_id" name="usu_id">
