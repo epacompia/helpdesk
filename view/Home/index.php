@@ -28,7 +28,38 @@ if (isset($_SESSION["usu_id"])) {
 	<!-- INICIO DEL CONTENIDO -->
 	<div class="page-content">
 		<div class="container-fluid">
-			Blank page.
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="row">
+						<div class="col-sm-4">
+							<article class="statistic-box green">
+								<div>
+									<div class="number" id="lbltotal"></div>
+									<div class="caption"><div>Total de tickets</div></div>
+								</div>
+							</article>
+						</div>
+
+						<div class="col-sm-4">
+							<article class="statistic-box yellow">
+								<div>
+									<div class="number" id="lbltotalabiertos"></div>
+									<div class="caption"><div>Total de tickets Abiertos</div></div>
+								</div>
+							</article>
+						</div>
+
+						<div class="col-sm-4">
+							<article class="statistic-box red">
+								<div>
+									<div class="number" id="lbltotalcerrados"></div>
+									<div class="caption"><div>Total de tickets Cerrados</div></div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div><!--.container-fluid-->
 	</div><!--.page-content-->
 	<!-- FIN DEL CONTENIDO -->

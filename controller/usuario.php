@@ -68,5 +68,11 @@
                 echo json_encode($output);
             }
             break;
+
+        case "total":
+            $datos=$usuario->get_usuario_total_x_id($_POST["usu_id"]);
+            echo json_encode($datos);
+            break;
+
     }
 ?>

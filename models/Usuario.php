@@ -108,6 +108,40 @@
         }
 
 
+        //PARA EL DASHBOARD
+        //TOTAL TICKETS
+        public function get_usuario_total_x_id($usu_id){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM tm_ticket WHERE usu_id=?";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        //TOTAL TICKETS ABIERTOS
+        public function get_usuario_totalabiertos_x_id($usu_id){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM tm_ticket WHERE usu_id=? AND tick_estado='Abierto'";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        //TOTAL TICKETS CERRADOS
+        public function get_usuario_totalcerrados_x_id($usu_id){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM tm_ticket WHERE usu_id=? AND tick_estado='Cerrado'";
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
     }
 
 
