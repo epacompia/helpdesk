@@ -69,9 +69,37 @@
             }
             break;
 
-        case "total":
-            $datos=$usuario->get_usuario_total_x_id($_POST["usu_id"]);
-            echo json_encode($datos);
+
+
+        //CASOS PARA EL DASHBOARD 3 CUADROS: TOTAL, ABIERTOS  Y CERRADOS
+        case "total";
+            $datos = $usuario->get_usuario_total_x_id($_POST["usu_id"]);
+            if(is_array($datos) == true and count($datos)>0){
+                foreach($datos as $row){
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
+            }
+            break;
+
+            case "totalabiertos";
+            $datos = $usuario->get_usuario_totalabiertos_x_id($_POST["usu_id"]);
+            if(is_array($datos) == true and count($datos)>0){
+                foreach($datos as $row){
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
+            }
+            break;
+
+            case "totalcerrados";
+            $datos = $usuario->get_usuario_totalcerrados_x_id($_POST["usu_id"]);
+            if(is_array($datos) == true and count($datos)>0){
+                foreach($datos as $row){
+                    $output["TOTAL"] = $row["TOTAL"];
+                }
+                echo json_encode($output);
+            }
             break;
 
     }

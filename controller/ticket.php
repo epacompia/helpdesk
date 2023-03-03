@@ -162,10 +162,44 @@ switch ($_GET["op"]) {
         break;  
         
         
-        case "update":
+      case "update":
             $ticket->update_ticket($_POST["tick_id"]); //LLAMANDO A LOS DATOS DE Ticket.php para pasarlos como parametros
             $ticket->insert_ticketdetalle_cerrar($_POST["tick_id"],$_POST["usu_id"]); //LLAMANDO A ESTA FUNCION PARA CERRAR EL TICKET Y MOSTRARLE MENSAJE DE TICKET CERRADO
-        break;
+      break;
+
+
+
+
+       //CASOS PARA EL DASHBOARD 3 CUADROS: TOTAL, ABIERTOS  Y CERRADOS
+       case "total";
+       $datos = $ticket->get_ticket_total();
+       if(is_array($datos) == true and count($datos)>0){
+           foreach($datos as $row){
+               $output["TOTAL"] = $row["TOTAL"];
+           }
+           echo json_encode($output);
+       }
+       break;
+
+       case "totalabiertos";
+       $datos = $ticket->get_ticket_totalabiertos();
+       if(is_array($datos) == true and count($datos)>0){
+           foreach($datos as $row){
+               $output["TOTAL"] = $row["TOTAL"];
+           }
+           echo json_encode($output);
+       }
+       break;
+
+       case "totalcerrados";
+       $datos = $ticket->get_ticket_totalcerrados();
+       if(is_array($datos) == true and count($datos)>0){
+           foreach($datos as $row){
+               $output["TOTAL"] = $row["TOTAL"];
+           }
+           echo json_encode($output);
+       }
+       break;
 
 
 }

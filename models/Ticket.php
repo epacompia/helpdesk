@@ -156,6 +156,56 @@ class Ticket extends Conectar
         return $resultado = $sql->fetchAll();
     }
 
+
+    //PAR LA VISTA DE SOPORTE AHORA CREAREMOS SU DASHBOARD
+        //TOTAL TICKETS
+        public function get_ticket_total(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM tm_ticket";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        //TOTAL TICKETS ABIERTOS
+        public function get_ticket_totalabiertos(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM tm_ticket WHERE  tick_estado='Abierto'";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+        //TOTAL TICKETS CERRADOS
+        public function get_ticket_totalcerrados(){
+            $conectar = parent::conexion();
+            parent::set_names();
+            $sql = "SELECT COUNT(*) AS TOTAL FROM tm_ticket WHERE tick_estado='Cerrado'";
+            $sql = $conectar->prepare($sql);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
+
+
+        //PARA EL GRAFICO AHORA DEL DASHBOARD
+        //ESTE QUERY ME CUENTA POR CATEGORIA CUANTAS INCIDENCIAS HA HABIDO
+        public function get_ticket_grafico(){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT tm_categoria.cat_nom as nom, COUNT(*) AS total 
+            FROM tm_ticket JOIN 
+            tm_categoria ON tm_ticket.cat_id= tm_categoria.cat_id 
+            WHERE tm_ticket.est =1 
+            GROUP BY
+            tm_categoria.cat_nom
+            ORDER BY total DESC";
+
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
 }
 
 ?>
