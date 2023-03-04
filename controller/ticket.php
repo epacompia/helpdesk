@@ -202,6 +202,13 @@ switch ($_GET["op"]) {
        break;
 
 
+       //SERVICIO PARA LOS GRAFICOS PARA DIBUJAR LA GRAFICA
+       case "grafico";
+            $datos=$ticket->get_ticket_grafico();
+            echo json_encode($datos);
+        break;
+        
+
 }
 
 ?>

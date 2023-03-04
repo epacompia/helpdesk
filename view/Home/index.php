@@ -66,9 +66,18 @@ if (isset($_SESSION["usu_id"])) {
 						</div>
 					</div>
 
-					<!-- AQUI VA EL ID DE MI CHART QUE MOSTRARA EN ESTE ARCIVO PHP -->
-					<div id="myfirstchart" style="height: 250px;"></div>
+					
 				</div>
+					<!-- AQUI VA EL GRAFICO DE MI DASHBOARD -->
+					<section class="card">
+						<header class="card-header">
+							Grafico estadistico
+						</header>
+						<div class="card-block">
+							<!-- AQUI VA EL ID DE MI CHART QUE MOSTRARA EN ESTE ARCIVO PHP -->
+							<div id="divgrafico" style="height: 250px;"></div>
+						</div>
+					</section>
 			</div><!--.container-fluid-->
 		</div><!--.page-content-->
 		<!-- FIN DEL CONTENIDO -->
