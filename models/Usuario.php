@@ -15,7 +15,8 @@
                 header("Location:" . conectar::ruta() . "index.php?m=2"); //En caso este vacio los campos del formulario correo y pass
                 exit();
             }else {
-                $sql = "SELECT * FROM tm_usuario WHERE  usu_correo=? and usu_pass=? and rol_id=? and est=1"; //En caso si se encuentre el registro
+                //en la linea 19 encripto la contraseña cn md5 
+                $sql = "SELECT * FROM tm_usuario WHERE  usu_correo=? and usu_pass=MD5(?) and rol_id=? and est=1"; //En caso si se encuentre el registro
                 $stmt = $conectar->prepare($sql);
                 $stmt->bindValue(1, $correo); //bindvalue usa dos parametros el primero es para sustituir el primer signo de interogacion y sustituirlo por $correo
                 $stmt->bindValue(2, $pass); //bindvalue usa dos parametros el primero es para sustituir el segundo signo de interogacion y sustituirlo por $pass
@@ -46,7 +47,7 @@
             $conectar = parent::conexion();
             parent::set_names();
             $sql = "INSERT INTO tm_usuario(usu_id,usu_nom,usu_ape,usu_correo,usu_pass,rol_id,fech_crea,fech_modi,fech_elim,est) VALUES
-            (NULL,?,?,?,?,?,now(),NULL,NULL,1);";
+            (NULL,?,?,?,MD5(?),?,now(),NULL,NULL,1);";
             
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1,$usu_nom);
@@ -90,7 +91,7 @@
         public function get_usuario(){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "SELECT * FROM tm_usuario where est=1";
+            $sql = "call sp_l_usuario_01()";
             $sql = $conectar->prepare($sql);
             $sql->execute();
             return $resultado = $sql->fetchAll();
@@ -100,7 +101,7 @@
         public function get_usuario_x_id($usu_id){
             $conectar = parent::conexion();
             parent::set_names();
-            $sql = "SELECT * FROM tm_usuario where usu_id=?";
+            $sql = "call sp_l_usuario_02(?)";
             $sql = $conectar->prepare($sql);
             $sql->bindValue(1,$usu_id);
             $sql->execute();
@@ -142,7 +143,25 @@
             return $resultado = $sql->fetchAll();
         }
 
-        
+        //PARA EL GRAFICO AHORA DEL DASHBOARD
+        //ESTE QUERY ME CUENTA POR CATEGORIA CUANTAS INCIDENCIAS HA HABIDO
+        public function get_usuario_grafico($usu_id){
+            $conectar=parent::conexion();
+            parent::set_names();
+            $sql="SELECT tm_categoria.cat_nom as nom, COUNT(*) AS total 
+            FROM tm_ticket JOIN 
+            tm_categoria ON tm_ticket.cat_id= tm_categoria.cat_id 
+            WHERE tm_ticket.est =1 
+            and tm_ticket.usu_id =?
+            GROUP BY
+            tm_categoria.cat_nom
+            ORDER BY total DESC";
+
+            $sql=$conectar->prepare($sql);
+            $sql->bindValue(1,$usu_id);
+            $sql->execute();
+            return $resultado=$sql->fetchAll();
+        }
 
     }
 

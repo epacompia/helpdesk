@@ -33,6 +33,23 @@ $(document).ready(function(){
         //console.log(data.TOTAL);
         $('#lbltotalcerrados').html(data.TOTAL); //AQUI LE MUESTRO EL TOTAL LLAMANDO AL CAMPO lbl que esta seteado en mi vista index
     });
+
+    $.post("../../controller/usuario.php?op=grafico", {usu_id:usu_id}, function (data) {
+        data = JSON.parse(data);
+        //console.log(data);
+        
+        new Morris.Bar({
+            element: 'divgrafico',
+            data: data,
+            xkey: 'nom',
+            ykeys: ['total'],
+            labels: ['Value'],
+            barColors: ["#1AB244"],
+        });
+    }); 
+
+
+
     }else{
         //PARA LA VISTA DE SOPORTE 
         $.post("../../controller/ticket.php?op=total" , function (data){
@@ -56,21 +73,23 @@ $(document).ready(function(){
             //console.log(data.TOTAL);
             //console.log(data.TOTAL);
             $('#lbltotalcerrados').html(data.TOTAL); //AQUI LE MUESTRO EL TOTAL LLAMANDO AL CAMPO lbl que esta seteado en mi vista index
-        });        
+        });    
+        
+        $.post("../../controller/ticket.php?op=grafico",function (data) {
+            data = JSON.parse(data);
+            //console.log(data);
+            
+            new Morris.Bar({
+                element: 'divgrafico',
+                data: data,
+                xkey: 'nom',
+                ykeys: ['total'],
+                labels: ['Value']
+            });
+        }); 
     }
 
-    $.post("../../controller/ticket.php?op=grafico",function (data) {
-        data = JSON.parse(data);
-        console.log(data);
-        
-        new Morris.Bar({
-            element: 'divgrafico',
-            data: data,
-            xkey: 'nom',
-            ykeys: ['total'],
-            labels: ['Value']
-        });
-    }); 
+    
 
 });
 
