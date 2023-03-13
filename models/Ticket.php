@@ -7,7 +7,7 @@ class Ticket extends Conectar
     public function insert_ticket($usu_id,$cat_id,$tick_titulo,$tick_descrip){
         $conectar = parent::conexion();
         parent::set_names();
-         $sql = "INSERT INTO tm_ticket(tick_id,usu_id,cat_id,tick_titulo,tick_descrip,tick_estado,fech_crea,est) VALUES (NULL,?,?,?,?,'Abierto',now(),'1');"; //now() es para obtener la fecha y hora actual del sistema , solo lo que hice fue agregar a la tabla tm_ticket un campo llamado fech_crea y luego  me vine aqui al modelo para agregar ese campo now() para agregar la fecha y hora donde se creo el ticket nada mas no he hecho cambios en otro lado
+         $sql = "INSERT INTO tm_ticket(tick_id,usu_id,cat_id,tick_titulo,tick_descrip,tick_estado,fech_crea,usu_asig,fech_asig,est) VALUES (NULL,?,?,?,?,'Abierto',now(),NULL,NULL,'1');"; //now() es para obtener la fecha y hora actual del sistema , solo lo que hice fue agregar a la tabla tm_ticket un campo llamado fech_crea y luego  me vine aqui al modelo para agregar ese campo now() para agregar la fecha y hora donde se creo el ticket nada mas no he hecho cambios en otro lado
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $usu_id);
         $sql->bindValue(2, $cat_id);
@@ -28,6 +28,8 @@ class Ticket extends Conectar
         tm_ticket.tick_descrip,
         tm_ticket.tick_estado, /*AGREGO ESTE TICKET PARA DETERMINAR  EL ESTADO DEL TICKET ABIERTO O CERRADO*/ 
         tm_ticket.fech_crea,  /*AQUI AGREGO ESTE CAMPO TAMBIEN PARA MOSTRAR ESTE DATO EN MI QUERY*/
+        tm_ticket.usu_asig, /*CAMPOS AGREGADOS PARA LA ASIGNACION DE TICKET* */
+        tm_ticket.fech_asig, /*CAMPOS AGREGADOS PARA LA ASIGNACION DE TICKET* */
         tm_usuario.usu_nom,
         tm_usuario.usu_ape,
         tm_categoria.cat_nom
@@ -55,6 +57,8 @@ class Ticket extends Conectar
         tm_ticket.tick_descrip,
         tm_ticket.tick_estado, /*AGREGO ESTE TICKET PARA DETERMINAR  EL ESTADO DEL TICKET ABIERTO O CERRADO*/ 
         tm_ticket.fech_crea,  /*AQUI AGREGO ESTE CAMPO TAMBIEN PARA MOSTRAR ESTE DATO EN MI QUERY*/
+        tm_ticket.usu_asig, /*CAMPOS AGREGADOS PARA LA ASIGNACION DE TICKET* */
+        tm_ticket.fech_asig, /*CAMPOS AGREGADOS PARA LA ASIGNACION DE TICKET* */
         tm_usuario.usu_nom,
         tm_usuario.usu_ape,
         tm_categoria.cat_nom

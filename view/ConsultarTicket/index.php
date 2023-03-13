@@ -51,6 +51,7 @@ if (isset($_SESSION["usu_id"])) {
 								<th class="d-none d-sm-table-cell" style="width: 40%;">Titulo</th>
 								<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
 								<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha de Creación</th>  <!--AQUI AGREGO ESTE CAMPO PARA QUE SE MUESTRE EN MI LISTA DE TICEKTS-->
+								<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha de Asignación</th> 
 								<th class="text-center" style="width: 15%;"></th>
 								
 							</tr>
