@@ -210,6 +210,23 @@ class Ticket extends Conectar
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
+
+
+
+        //PARA ASIGNAR EL TICKET A UN USUARIO DE SOPORTE
+        public function update_ticket_asignacion($tick_id,$usu_asig){
+            $conectar = parent::conexion();
+            $sql = "UPDATE tm_ticket
+            set usu_asig=?,
+            fech_asig= now()
+            where
+            tick_id=?"; //aqui coloco el parametro del ususario
+            $sql = $conectar->prepare($sql);
+            $sql->bindValue(1,$usu_asig);
+            $sql->bindValue(2, $tick_id);
+            $sql->execute();
+            return $resultado = $sql->fetchAll();
+        }
 }
 
 ?>

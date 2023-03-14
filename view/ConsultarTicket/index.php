@@ -52,6 +52,7 @@ if (isset($_SESSION["usu_id"])) {
 								<th class="d-none d-sm-table-cell" style="width: 5%;">Estado</th>
 								<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha de Creación</th>  <!--AQUI AGREGO ESTE CAMPO PARA QUE SE MUESTRE EN MI LISTA DE TICEKTS-->
 								<th class="d-none d-sm-table-cell" style="width: 10%;">Fecha de Asignación</th> 
+								<th class="d-none d-sm-table-cell" style="width: 10%;">Soporte asignado</th> 
 								<th class="text-center" style="width: 15%;"></th>
 								
 							</tr>
@@ -68,6 +69,10 @@ if (isset($_SESSION["usu_id"])) {
 
 
 		<?php
+
+
+		//LLAMANDO A LA VENTANA MODAL PARA QUE SE PUEDA ASIGNAR UN USUARIO AL TICKET Y QUE LO ATIENDA
+		require_once("modalasignar.php");
 		require_once("../mainJs/js.php");
 		?>
 		<script type="text/javascript" src="consultarTicket.js"></script> <!--LLAMO AL home.js de mi carpeta -->
