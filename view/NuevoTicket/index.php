@@ -53,6 +53,14 @@ if (isset($_SESSION["usu_id"])) {
 					<div class="row">
 						<form action="" method="POST" id="ticket_form">
 							<input type="hidden" id="usu_id" name="usu_id" value="<?php echo $_SESSION["usu_id"] ?>">
+							
+							<div class="col-lg-12">
+								<fieldset class="form-group">
+									<label class="form-label semibold" for="tick_titulo">Título</label>
+									<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese el título">
+								</fieldset>
+							</div>
+							
 							<div class="col-lg-6">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="exampleInput">Categoria</label>
@@ -62,11 +70,12 @@ if (isset($_SESSION["usu_id"])) {
 								</fieldset>
 							</div>
 							<div class="col-lg-6">
-								<fieldset class="form-group">
-									<label class="form-label semibold" for="tick_titulo">Título</label>
-									<input type="text" class="form-control" id="tick_titulo" name="tick_titulo" placeholder="Ingrese el título">
-								</fieldset>
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="exampleInput">Adjuntar Documento</label>
+								<input type="file" name="fileElem" id="fileElem" class="form-control" multiple>
+							</fieldset>
 							</div>
+							
 							<div class="col-lg-12">
 								<fieldset class="form-group">
 									<label class="form-label semibold" for="tick_descrip">Descripción</label>
@@ -75,6 +84,7 @@ if (isset($_SESSION["usu_id"])) {
 									</div>
 								</fieldset>
 							</div>
+
 							<div class="col-lg-12">
 								<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Guardar</button> <!--Le coloco un name y un value-->
 							</div>
