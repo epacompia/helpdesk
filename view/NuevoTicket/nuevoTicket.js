@@ -30,6 +30,12 @@ function init(){
 		if ($('#tick_descrip').summernote('isEmpty') || $('#tick_titulo').val()=='') {
 			swal("Advertencia!","Campos vacios","warning");
 		}else{	
+
+		var totalfiles= $('#fileElem').val().length;
+		for(var i=0; i<totalfiles; i++){
+			formData.append("files[]", $('#fileElem')[0].files[i]);
+		}
+
 		$.ajax({
 			url:"../../controller/ticket.php?op=insert",
 			type: "POST",
@@ -37,7 +43,7 @@ function init(){
 			contentType:false, 
 			processData: false,
 			success: function(datos){
-				//console.log(datos);
+				console.log(datos);
 				$('#tick_titulo').val(''); //AQUI LLAMO A LOS CAMPOS DESPUES DE QUE SE EJECUTO EL AJAX PARA LIMPIAR SUS CAJAS Y DEJARLO EN VACIO DESPUES DE AGREGAR
 				$('#tick_descrip').summernote('reset'); //AQUI BORRO LA INFORMACION DEL TEXAREA LLAMANDO A SUMMERNOTE PARA LIMPIARLO Y RESET
 

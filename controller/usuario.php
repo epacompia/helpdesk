@@ -119,5 +119,11 @@
                 echo $html;
             }
         break;
+
+        // Controller para actualizar la contraseña
+        case "password":
+            $usuario->update_usuario_pass($_POST["usu_id"],$_POST["usu_pass"]); //LLAMANDO A LOS DATOS DE Ticket.php para pasarlos como parametros
+        break;
+
     }
 ?>
